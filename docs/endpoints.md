@@ -49,7 +49,7 @@ ARTIST:
 - AUTHORIZATION = NO
 - ERROR HANDLING = Same email (409, Integrity Error), unauthorized (401)
 
-### 127.0.0.1:5000/auth/login-user
+### 127.0.0.1:5000/auth/user-login
 
 *Login User*
 
@@ -60,7 +60,7 @@ ARTIST:
 - AUTHORIZATION = NO
 - ERROR HANDLING = Invalid log in (404)
 
-### 127.0.0.1:5000/auth/login-artist
+### 127.0.0.1:5000/auth/artist-login
 
 *Login Artist*
 
