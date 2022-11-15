@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from src.main import db
+from main import db
 from datetime import date
 from models.artworks import Artwork, ArtworkSchema
 from models.artists import Artist

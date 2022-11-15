@@ -1,5 +1,5 @@
 from flask import Blueprint, request, abort
-from src.main import db
+from main import db
 from models.users import User, UserSchema
 from flask_jwt_extended import jwt_required
 from controllers.auth_controller import authorize_precise_user

@@ -1,5 +1,5 @@
 from flask import Blueprint, request, abort
-from src.main import db, bcrypt
+from main import db, bcrypt
 from datetime import timedelta
 from models.users import User, UserSchema
 from models.artists import Artist, ArtistSchema

@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from src.main import db
+from main import db
 from models.q_and_as import QAndA, QAndASchema
 from models.q_and_a_comments import QAndAComment, QAndACommentSchema
 from controllers.auth_controller import authorize_artist, authorize_precise_user, authorize_user, authorize_precise_artist

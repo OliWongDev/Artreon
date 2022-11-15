@@ -1,4 +1,4 @@
-from src.main import db, ma
+from main import db, ma
 from marshmallow import fields
 
 # Walkthrough Comment Model (SQLAlchemy)

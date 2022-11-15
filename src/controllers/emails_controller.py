@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from src.main import db
+from main import db
 from models.emails import Email, EmailSchema
 from controllers.auth_controller import authorize_artist
 from flask_jwt_extended import jwt_required, get_jwt_identity

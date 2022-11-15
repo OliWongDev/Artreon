@@ -52,9 +52,9 @@ def create_app():
     # Creating JWT authentication/authorization in app
     jwt.init_app(app)
 
-    # Seed commands configuration
+    # Seed commands configurations
 
-    from src.commands import db_commands
+    from commands import db_commands
     app.register_blueprint(db_commands)
 
     # Importing the controllers and activating the blueprints in a for loop!
