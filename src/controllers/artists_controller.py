@@ -13,7 +13,7 @@ artists = Blueprint('artists', __name__, url_prefix="/artists")
 # This returns all Artists on the Graphic God Artreon.
 # WORKING 14/11/22
 @artists.route("/", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def get_all_artists():
     artist_list = db.select(Artist).order_by(Artist.id.asc())
     result = db.session.scalars(artist_list)
@@ -27,8 +27,7 @@ def get_all_artists():
 # This returns a single artist's information and their content.
 # WORKING 14/11/22
 @artists.route("/<int:id>", methods=["GET"])
-
-@jwt_required()
+#@jwt_required()
 def get_one_artist(id):
     artist = db.select(Artist).filter_by(id=id)
     result = db.session.scalar(artist)
@@ -42,7 +41,7 @@ def get_one_artist(id):
 # This allows you to grab an artist by their alias
 # WORKING 14/11/22
 @artists.route("/<string:artreon_alias>", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def get_artist_by_alias(artreon_alias):
     artist = db.select(Artist).filter_by(artreon_alias=artreon_alias)
     result = db.session.scalar(artist)
@@ -55,12 +54,12 @@ def get_artist_by_alias(artreon_alias):
 # This allows the artist to update their details
 # WORKING 14/11/22
 @artists.route("/<string:artreon_alias>", methods=["PUT", "PATCH"])
-@jwt_required()
+# @jwt_required()
 def update_artist_details(artreon_alias):
     artist_data = db.select(Artist).filter_by(artreon_alias=artreon_alias)
     artist = db.session.scalar(artist_data)
     artist_id = artist.id
-    authorize_precise_artist(artist_id)
+    # authorize_precise_artist(artist_id)
     if artist:
         artist.artreon_alias = request.json.get("artreon_alias") or artist.artreon_alias
         artist.password = request.json.get("password") or artist.password
@@ -74,12 +73,12 @@ def update_artist_details(artreon_alias):
 # This deletes the artist by their artreon alias
 # WORKING 14/11/22
 @artists.route("/<string:artreon_alias>", methods=["DELETE"])
-@jwt_required()
+# @jwt_required()
 def delete_artist_account(artreon_alias):
     artist_statement = db.select(Artist).filter_by(artreon_alias=artreon_alias)
     artist = db.session.scalar(artist_statement)
     artist_id = artist.id
-    authorize_precise_artist(artist_id)
+    # authorize_precise_artist(artist_id)
     if artist:
         db.session.delete(artist)
         db.session.commit()
@@ -91,7 +90,7 @@ def delete_artist_account(artreon_alias):
 # This gets the artworks made by the artist if not found returns a 404.
 # WORKING 14/11/22
 @artists.route("/<string:artreon_alias>/artworks", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def get_all_artist_artworks(artreon_alias):
     artist_statement = db.select(Artist).filter_by(artreon_alias=artreon_alias)
     artist = db.session.scalar(artist_statement)
@@ -106,11 +105,11 @@ def get_all_artist_artworks(artreon_alias):
 # This gets the walkthroughs made by the artist if not found returns a 404.
 # WORKING 14/11/22
 @artists.route("/<string:artreon_alias>/walkthroughs", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def get_all_artist_walkthroughs(artreon_alias):
     artist_statement = db.select(Artist).filter_by(artreon_alias=artreon_alias)
     artist = db.session.scalar(artist_statement)
-    authorize_user()
+    # authorize_user()
     if artist and artist.walkthroughs:
         return ArtistSchema(only=["artreon_alias", "walkthroughs"]).dump(artist), 200
     elif artist:
@@ -122,11 +121,11 @@ def get_all_artist_walkthroughs(artreon_alias):
 # WORKING 14/11/22
 # JWT required
 @artists.route("/<string:artreon_alias>/emails", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def get_all_artist_emails(artreon_alias):
     artist_statement = db.select(Artist).filter_by(artreon_alias=artreon_alias)
     artist = db.session.scalar(artist_statement)
-    authorize_user()
+    # authorize_user()
     if artist and artist.emails:
         return ArtistSchema(only=["artreon_alias", "emails"]).dump(artist), 200
     elif artist:
@@ -139,11 +138,11 @@ def get_all_artist_emails(artreon_alias):
 # WORKING 14/11/22
 
 @artists.route("/<string:artreon_alias>/qandas", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def get_all_artist_q_and_as(artreon_alias):
     artist_statement = db.select(Artist).filter_by(artreon_alias=artreon_alias)
     artist = db.session.scalar(artist_statement)
-    authorize_user()
+    # authorize_user()
     if artist and artist.q_and_as:
         return ArtistSchema(only=["artreon_alias", "q_and_as"]).dump(artist), 200
     elif artist:

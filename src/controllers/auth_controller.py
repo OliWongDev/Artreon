@@ -27,7 +27,7 @@ def auth_register_user():
         )
         db.session.add(user)
         db.session.commit()
-        return UserSchema(exclude='password').dump(user), 201
+        return UserSchema(exclude=['password']).dump(user), 201
     except IntegrityError:
         return {'error': 'Email address or alias already in use'}, 409
 
