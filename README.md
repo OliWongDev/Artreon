@@ -4,9 +4,9 @@ Welcome to Artreon! A model clone of the popular service Patreon where artists c
 
 Artreon uses RESTful API practices to communicate data stored and incoming data in a relational manner, granting interactivity between the consumers of the service and the creators that populate it.
 
-![Link to Github Repo!](https://github.com/OliWongDev/T2A2-Artreon)
+[Link to corrupted Github Repo for reviewing previous commits](https://github.com/OliWongDev/T2A2-Artreon)
 
-![Link to Trello!](https://trello.com/b/XZPGM2wN/artreon)
+[Link to Trello!](https://trello.com/b/XZPGM2wN/artreon)
 
 ## User Guide
 
@@ -51,7 +51,7 @@ This would be valid to drop into your database provided the database was named "
 
 If successful, it should appear something like this!
 
-![Successful seeded data](/docs/seed_success.png)
+![Successful seeded data](/docs/Seed%20success.png)
 
 If you make changes or want to go back to the starting point, use:
 
@@ -66,7 +66,7 @@ This command drops all tables from the database, and then from there it is okay 
 
 10. Now you can send requests through POSTMAN! 
 
-I have documented the routes in the ![endpoints markdown file](/endpoints.md) so that the user of the API may know what the possible endpoints they can request are. An example endpoint is:
+I have documented the routes in the [endpoints markdown file](/docs/endpoints.md) so that the user of the API may know what the possible endpoints they can request are. An example endpoint is:
 
 ```127.0.0.1:5000/artists```
 
@@ -139,9 +139,9 @@ Further, I condensed my models down from having a comments relation to artwork c
 
 I also utilised Marshmallow schemas (ma) to assist with nested data from interrelated tables to my liking. For example, I wanted to show a GET route for the primary artist and with nesting the artworks/walkthroughs/q&as that they had done I was able to create a format that previewed what the artist had done without giving too much away. Marshmallow also proved valuable when validating fields such as password minimums (6) and certain characters being denied.
 
-Here is an example of the walkthrough model which shows how the parent and child relationships are commonly defined throughout the app.
+Here is an example of the walkthrough model which shows how the parent and child relationships are commonly defined throughout the app. The first section is the table name. The second segment is the exclusive fields related to a walkthrough with their constraints. The third section is the foreign keys held in the walkthroughs table. The final component is the relations to other tables with their parent/child criteria set up.
 
-![walkthrough](/docs/walkthrough)model.png)
+![walkthrough](/docs/Walkthrough%20Model.png)
 
 ### Artist
 
@@ -401,11 +401,22 @@ Further, PostgreSQL is an industry standard tool for database management on rela
 
 ### Drawbacks
 
+There are some drawbacks to using PostgreSQL such as speed and 
 
+### Low speed in certain cases
 
+Compared to another relational DBMS MySQL, PostgreSQL has a lower reading speed (which is how long it takes to open files). Particularly in cases where the data is complex and/or long to read, PostgreSQL can struggle to keep up with other databases. Further, when compared to another DBMS Oracle it is "less productive" with the amount of transactions it can deal with per second. There are however workarounds that are available especially considering how it is open-source.
 
+REFERENCES:
 
+[PostgreSQL](https://www.ionos.com/digitalguide/server/know-how/postgresql/)
+[PostgreSQL vs Oracle](https://hevodata.com/learn/postgresql-vs-oracle/#differences)
 
+### Flexibility
+
+PostgreSQL is a favourable solution for a wide range of database problems. However, it is possible that there are times where a simpler relational database would be preferable. MySQL offers a cloud-ready, beginner friendly, flexible with different data storage engines to integrate from and can be speedy for low-level queries. 
+
+[PostgreSQL vs MySQL](https://www.integrate.io/blog/postgresql-vs-mysql-which-one-is-better-for-your-use-case/#whichprogramminglanguagesdotheysupport)
 
 ## SQLAlchemy - Object Relational Mapper
 
@@ -426,11 +437,12 @@ In the SQLAlchemy documentation, the developers describe two distinct components
 The first is the Core which allows the expression of SQL in an object-oriented fashion meaning that we are able to use our Python code in Artreon in order to express the queries we want. The core also grants us the use of schemas which can be taken as the blueprints of how the data will appear. This part within our Flask application is taken care of within the core engine. This component is largely responsible for the DML (Data Manipulation Language) such as INSERT/UPDATE/DELETE that would equate to posting an artist, deleting a comment or updating a user's details.
 
 Finally, SQLAlchemy has an in-built but optional object relational mapper library that is used primarily to work with any object models that are mapped to the schema. We have primarily used this package for our smaller scale application. 
-References:
 
-- https://www.sqlalchemy.org/features.html
+REFERENCES:
 
-- https://docs.sqlalchemy.org/en/14/intro.html
+[SQLAlchemy Features](https://www.sqlalchemy.org/features.html)
+
+[SQLAlchemy Docs](https://docs.sqlalchemy.org/en/14/intro.html)
 
 ### Functionality of SQLAlchemy in Artreon
 
@@ -457,7 +469,8 @@ In order for someone to check the functionality of the API, we have the option t
 Finally, we can use the db sessions to ensure our data is committed to the database in the event we use Pythonic Data Manipulation Language (DML). The session represents a "holding zone" for us to manipulate the data and the new data is flushed into the database when committed. In Artreon, we use db.commit to upload new data to the database when a user updates their comment on an artwork and it takes either the changed description or holds the old description under the session.
 
 REFERENCES:
-- https://docs.sqlalchemy.org/en/14/orm/session_basics.html#what-does-the-session-do
+
+[SQLAlchemy Docs ORM Sessions](https://docs.sqlalchemy.org/en/14/orm/session_basics.html#what-does-the-session-do)
 
 ### What are the advantages of SQLAlchemy? Why is it implemented in Artreon?
 
@@ -470,8 +483,9 @@ SQLAlchemy offers Artreon a simple-to-implement way of protecting against an SQL
 By using Python objects to pass these queries, the window for this sort of attack to occur is contained within the Python code provided the API is set up correctly. 
 
 REFERENCES:
-- https://www.w3schools.com/sql/sql_injection.asp
-- https://www.oreilly.com/library/view/essential-sqlalchemy-2nd/9781491916544/preface02.html
+
+[SQL Injections](https://www.w3schools.com/sql/sql_injection.asp)
+[Essential SQLAlchemy (O'Reilly)](https://www.oreilly.com/library/view/essential-sqlalchemy-2nd/9781491916544/preface02.html)
 
 #### DRY Code:
 
@@ -482,7 +496,8 @@ As we have used an MVC (Model, View, Controller) model in a modularised format, 
 SQLAlchemy provides adaptable compatability with PostgreSQL, Python language and Marshmallow to create an API that is RESTful in Artreon. In future commits, it would be very possible to migrate this logic to other backend frameworks (e.g Django), DBMSs, deserializer integrators or other languages. Further, within the ORM itself SQLAlchemy can unintentionally assist to set up other n functions such as the authentication of users/artists and the authorization of paid users/free users
 
 REFERENCES:
-- https://towardsdatascience.com/building-and-deploying-a-login-system-backend-using-flask-sqlalchemy-and-heroku-8b2aa6cc9ec3
+
+[Deploying with SQLAlchemy](https://towardsdatascience.com/building-and-deploying-a-login-system-backend-using-flask-sqlalchemy-and-heroku-8b2aa6cc9ec3)
 
 ### What are the key drawbacks to SQLAlchemy's ORM?
 
@@ -491,13 +506,14 @@ The key drawbacks to SQLAlchemy are that there is not much scope for complex dat
 There are also some concerns about efficiency in the official documentation for querying large data sets as the unit of work (synchronizing pattern in an SQLAlchemy session that stores the list of changes made to a series of objects before flushing to db) is inclusive of attributes on objects (e.g artwork.artwork_title) and for each row they must acquire a "last inserted id". This is described as a "large degree of automation" and that using the SQLAlchemy ORM is "not intended for high-bulk inserts".
 
 REFERENCES:
-- https://www.educative.io/courses/quick-start-full-stack-web-development/xoqE7wqKk93
-- https://docs.sqlalchemy.org/en/14/glossary.html#term-unit-of-work
-- https://docs.sqlalchemy.org/en/14/faq/performance.html#i-m-inserting-400-000-rows-with-the-orm-and-it-s-really-slow
+
+[Educative.io](https://www.educative.io/courses/quick-start-full-stack-web-development/xoqE7wqKk93)
+[SQLAlchemy Docs: Unit of Work](https://docs.sqlalchemy.org/en/14/glossary.html#term-unit-of-work)
+[SQL Alchemy Docs: FAQ Question](https://docs.sqlalchemy.org/en/14/faq/performance.html#i-m-inserting-400-000-rows-with-the-orm-and-it-s-really-slow)
 
 ## Endpoints
 
-![Check out the endpoints!](/endpoints.md)
+[Check out the endpoints!](/docs/endpoints.md)
 
 ## Services Utilised
 
@@ -513,7 +529,7 @@ Flask is appropriate for a smaller project such as this, however on a larger sca
 
 REFERENCES:
 
-![Flask Pros and Cons](https://dev.to/detimo/python-flask-pros-and-cons-1mlo)
+[Flask Pros and Cons](https://dev.to/detimo/python-flask-pros-and-cons-1mlo)
 
 ### BCrypt
 
@@ -523,7 +539,7 @@ This could be improved with salting, however it was a would-be-nice feature for 
 
 ### PostgreSQL
 
-PostgreSQL is the relational database management system I have opted to use for Artreon. You can find more information about how it works and how it has been implemented ![above](#postgresql---the-database-management-system-of-choice).
+PostgreSQL is the relational database management system I have opted to use for Artreon. You can find more information about how it works and how it has been implemented [above](#postgresql---the-database-management-system-of-choice).
 
 ### POSTMAN
 
@@ -531,7 +547,7 @@ POSTMAN is an API platform that I used largely to review my endpoints. POSTMAN's
 
 ### SQLAlchemy
 
-SQLAlchemy is the ORM that was used to build the models and relations that make up the API. You can read more about the service generally and how it was used in Artreon ![above](#sqlalchemy---object-relational-mapper).
+SQLAlchemy is the ORM that was used to build the models and relations that make up the API. You can read more about the service generally and how it was used in Artreon [above](#sqlalchemy---object-relational-mapper).
 
 In the Artreon source code, it is designated with the "db" object.
 
@@ -543,7 +559,7 @@ In the Artreon source code, it is designated by the 'ma' object.
 
 REFERENCES:
 
-![Marshmallow Official Docs](https://flask-marshmallow.readthedocs.io/en/latest/)
+[Marshmallow Official Docs](https://flask-marshmallow.readthedocs.io/en/latest/)
 
 ### Flask-JWT
 
@@ -557,13 +573,13 @@ Whilst not part of the application itself, I should mention that a Trello board 
 
 It was nice to have something to work through automatically and made the task of remembering what I had to do and when a lot easier. I look forward to continuing my use of it in the future. 
 
-You can view the ![Software Management Process](#software-management-process) below.
+You can view the [Software Management Process](#software-management-process) below.
 
 ## Software Management Process
 
-![Trello Board Link](https://trello.com/b/XZPGM2wN/artreon)
+[Trello Board Link](https://trello.com/b/XZPGM2wN/artreon)
 
-![Software Development Plan](/software_development_plan.md)
+[Software Development Plan](/docs/software_development_plan.md)
 
 ## Minimum Viable Product Omissions
 
@@ -581,7 +597,7 @@ Unfortunately, I could not work out how to authorize 8 different quantities of a
 6. Precise artist authorization ("A specific artist who made the artwork is permitted to update it")
 7. Admin artist authorization ("The original artist can post walkthroughs/emails/Q&As)
 
-I have mentioned what the end result of this is in my ![Endpoints section](/endpoints.md) so that what is working can be viewed accordingly.
+I have mentioned what the end result of this is in my [Endpoints section](/docs/endpoints.md) so that what is working can be viewed accordingly.
 
 I do think Flask-Login and Flask-Authorization from my basic research is what I'm looking for. Defining the roles and groups models to distinguish the paid/free user and the admin/non-admin artist seems within the scope of these extensions.
 
