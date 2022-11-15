@@ -40,7 +40,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/auth/register-user
 
-*Register User*
+*(1) Register User*
 
 - METHODS = POST
 - INPUTS = user_alias, first_name, last_name, email, has_subscription, password
@@ -51,7 +51,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/auth/user-login
 
-*Login User*
+*(2) Login User*
 
 - METHODS = POST
 - INPUTS = email, password
@@ -62,7 +62,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/auth/artist-login
 
-*Login Artist*
+*(3) Login Artist*
 
 - METHODS = POST
 - INPUTS = email, password
@@ -75,7 +75,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/users
 
-*Get all users*
+*(4) Get all users*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -86,7 +86,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/users/<int:id>
 
-*Get single user*
+*(5) Get single user*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -97,7 +97,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/users/<string:user_alias>
 
-*Get user by alias*
+*(6) Get user by alias*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -108,7 +108,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/users/<string:user_alias>/comments
 
-*Get all user comments by alias*
+*(7) Get all user comments by alias*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -119,7 +119,7 @@ ARTIST:
     
 ### 127.0.0.1:5000/artists
 
-*Get all artists*
+*(8) Get all artists*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -130,7 +130,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artists/<int:id>
 
-*Get single artist*
+*(9) Get single artist*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -141,7 +141,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artists/<string:artreon_alias>
 
-*Get admin artist (artreon_alias = GraphicGod) or single artist*
+*(10) Get admin artist (artreon_alias = GraphicGod) or single artist*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -152,7 +152,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artists/<string:artreon_alias>/artworks
 
-*Get artworks made by artist*
+*(11) Get artworks made by artist*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -163,7 +163,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artists/<string:artreon_alias>/qandas
 
-*Get Q&As made by artist*
+*(12) Get Q&As made by artist*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -174,7 +174,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artists/<string:artreon_alias>/walkthroughs
 
-*Get walkthroughs made by artist*
+*(13) Get walkthroughs made by artist*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -185,7 +185,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artists/<string:artreon_alias>/emails
 
-*Get emails sent by artist*
+*(14) Get emails sent by artist*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -196,7 +196,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artworks
 
-*Get all artworks*
+*(15) Get all artworks*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -207,7 +207,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artworks/<int:id>
 
-*Get one artwork*
+*(16) Get one artwork*
 - METHODS = GET
 - INPUTS = n/a
 - OUTPUT = Retrieves a specific artwork in the database (200)
@@ -217,7 +217,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/walkthroughs
 
-*Get all walkthroughs*
+*(17) Get all walkthroughs*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -228,7 +228,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/walkthroughs/<int:id>
 
-*Get single walkthrough*
+*(18) Get single walkthrough*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -239,7 +239,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/walkthroughs/<int:id>/comments
 
-*Get all walkthrough comments on a walkthrough*
+*(19) Get all walkthrough comments on a walkthrough*
 - METHODS = GET
 - INPUTS = n/a
 - OUTPUT = Retrieves all comments on a walkthrough (200)
@@ -249,7 +249,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/emails
 
-*Get all emails*
+*(20) Get all emails*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -260,7 +260,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/emails/<int:id>
 
-*Get single email*
+*(21) Get single email*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -278,7 +278,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/users/<string:user_alias>
 
-*Update user details*
+*(22) Update user details*
 
 - METHODS = PUT/PATCH
 - INPUTS = user_alias, first_name, last_name, email, has_subscription, password
@@ -287,7 +287,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be same user
 - ERROR HANDLING = user alias not found in database (404, not found), inauthenticated (401)
 
-*Delete user*
+*(23) Delete user*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -298,7 +298,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artworks/<int:id>/comments
 
-*Create a comment on an artwork*
+*(24) Create a comment on an artwork*
 
 - METHODS = POST
 - INPUTS = description(string)
@@ -309,7 +309,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/artworks/<int:id>/comments/<int:artwork_comment_id>
 
-*Update own comment on an artwork*
+*(25) Update own comment on an artwork*
 
 - METHODS = PUT/PATCH
 - INPUTS = description(string)
@@ -318,7 +318,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be same/paid user
 - ERROR HANDLING = Unauthorized (401), artwork/comment not found (404)
 
-*Delete own comment*
+*(26) Delete own comment*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -329,7 +329,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/qandas
 
-*Get all Q&As*
+*(27) Get all Q&As*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -340,7 +340,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/qandas/<int:id>/comments
 
-*Create comment on Q&A*
+*(28) Create comment on Q&A*
 
 - METHODS = POST
 - INPUTS = description (string)
@@ -351,7 +351,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/qandas/<int:id>/comments/<int:q_and_a_comment_id>
 
-*Update comment on Q&A*
+*(29) Update comment on Q&A*
 
 - METHODS = PUT/PATCH
 - INPUTS = description (string)
@@ -360,7 +360,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be same user
 - ERROR HANDLING = Unauthorized (401), Q&A/comment not found (404)
 
-*Delete comment on Q&A*
+*(30) Delete comment on Q&A*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -371,7 +371,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/walkthroughs/<int:id>
 
-*Delete walkthrough*
+*(31) Delete walkthrough*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -380,7 +380,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = Unauthorized (401), walkthrough not found (404)
 
-*Update walkthrough*
+*(32) Update walkthrough*
 
 - METHODS = PUT/PATCH
 - INPUTS = description(string)
@@ -391,7 +391,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/walkthroughs/<int:id>/comments
 
-*Create a walkthrough comment*
+*(33) Create a walkthrough comment*
 
 - METHODS = POST
 - INPUTS = description(string)
@@ -402,7 +402,7 @@ ARTIST:
 
 ### 127.0.0.1:5000/walkthroughs/<int:id>/comments/<int:walkthrough_comment_id>
 
-*Update a walkthrough comment*
+*(34) Update a walkthrough comment*
 
 - METHODS = PUT/PATCH
 - INPUTS = description(string)
@@ -411,7 +411,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be paid user
 - ERROR HANDLING = Unauthorized (401), walkthrough/comment not found (404)
 
-*Delete a walkthrough comment*
+*(35) Delete a walkthrough comment*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -428,7 +428,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/auth/register-artist
 
-*Register Artist*
+*(36) Register Artist*
 
 - METHODS = POST
 - INPUTS = artreon_alias(str), password(str), email(str), artist_bio(str)
@@ -439,7 +439,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/artists/<int:id>
 
-*Update artist details*
+*(37) Update artist details*
 
 - METHODS = PUT/PATCH
 - INPUTS = artreon_alias(string), password, email, artist_bio
@@ -448,7 +448,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = artist not same artist (401), artist not found (404), inauthenticated (401)
 
-*Delete artist*
+*(38) Delete artist*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -459,7 +459,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/artworks
 
-*Create an artwork*
+*(39) Create an artwork*
 
 - METHODS = POST
 - INPUTS = artwork_name(string), description(string)
@@ -470,7 +470,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/artworks/<int:id>
 
-*Update an artwork*
+*(40) Update an artwork*
 
 - METHODS = PUT/PATCH
 - INPUTS = artwork_name(string), description(string)
@@ -479,7 +479,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = Unauthorized (401), Not found (404)
 
-*Delete an artwork*
+*(41) Delete an artwork*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -490,7 +490,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/qandas
 
-*Post Q&A*
+*(42) Post Q&A*
 
 - METHODS = POST
 - INPUTS = q_and_a_content(string)
@@ -501,7 +501,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/qandas/<int:id>
 
-*Delete Q&A*
+*(43) Delete Q&A*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -510,7 +510,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = Unauthorized(401), Q&A not found(404)
 
-*Update Q&A*
+*(44) Update Q&A*
 
 - METHODS = PUT/PATCH
 - INPUTS = q_and_a_content (string)
@@ -521,7 +521,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/walkthroughs
 
-*Create walkthrough*
+*(45) Create walkthrough*
 
 - METHODS = POST
 - INPUTS = description(string), artwork_id(foreign key)
@@ -532,7 +532,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/emails
 
-*Create an email*
+*(46) Create an email*
 
 - METHODS = POST
 - INPUTS = Email title (string), email content (string)
