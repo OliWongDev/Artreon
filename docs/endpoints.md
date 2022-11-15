@@ -49,6 +49,8 @@ ARTIST:
 - AUTHORIZATION = NO
 - ERROR HANDLING = Same email (409, Integrity Error), unauthorized (401)
 
+![Image](/docs/1.png)
+
 ### 127.0.0.1:5000/auth/user-login
 
 *(2) Login User*
@@ -60,6 +62,8 @@ ARTIST:
 - AUTHORIZATION = NO
 - ERROR HANDLING = Invalid log in (404)
 
+![Image](/docs/2.png)
+
 ### 127.0.0.1:5000/auth/artist-login
 
 *(3) Login Artist*
@@ -70,6 +74,8 @@ ARTIST:
 - AUTHENTICATION = NO
 - AUTHORIZATION = NO
 - ERROR HANDLING = Invalid log in (404)
+
+![Image](/docs/3.png)
 
 ## BASIC AUTHENTICATION
 
@@ -84,6 +90,8 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = n/a
 
+![Image](/docs/4.png)
+
 ### 127.0.0.1:5000/users/<int:id>
 
 *(5) Get single user*
@@ -94,6 +102,8 @@ ARTIST:
 - AUTHENTICATION = YES
 - AUTHORIZATION = n/a
 - ERROR HANDLING = user id not in database (404, not found)
+
+![Image](/docs/5.png)
 
 ### 127.0.0.1:5000/users/<string:user_alias>
 
@@ -106,6 +116,8 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = user_alias not in database (404, not found)
 
+![Image](/docs/6.png)
+
 ### 127.0.0.1:5000/users/<string:user_alias>/comments
 
 *(7) Get all user comments by alias*
@@ -116,6 +128,8 @@ ARTIST:
 - AUTHENTICATION = YES
 - AUTHORIZATION = n/a
 - ERROR HANDLING = inauthenticated (401)
+
+![Image](/docs/7.png)
     
 ### 127.0.0.1:5000/artists
 
@@ -128,6 +142,8 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = Inauthenticated (401)
 
+![Image](/docs/8.png)
+
 ### 127.0.0.1:5000/artists/<int:id>
 
 *(9) Get single artist*
@@ -138,6 +154,8 @@ ARTIST:
 - AUTHENTICATION = YES
 - AUTHORIZATION = n/a
 - ERROR HANDLING = artist id not found in database (404, not found), inauthenticated (401)
+
+![Image](/docs/9.png)
 
 ### 127.0.0.1:5000/artists/<string:artreon_alias>
 
@@ -150,6 +168,8 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = artist alias not found in database (404), inauthenticated (401)
 
+![Image](/docs/10.png)
+
 ### 127.0.0.1:5000/artists/<string:artreon_alias>/artworks
 
 *(11) Get artworks made by artist*
@@ -160,6 +180,8 @@ ARTIST:
 - AUTHENTICATION = YES
 - AUTHORIZATION = NO
 - ERROR HANDLING = artist not found (404), inauthenticated (401)
+
+![Image](/docs/11.png)
 
 ### 127.0.0.1:5000/artists/<string:artreon_alias>/qandas
 
@@ -172,6 +194,8 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = inauthenticated or free user (401), artist not found (404)
 
+![Image](/docs/12.png)
+
 ### 127.0.0.1:5000/artists/<string:artreon_alias>/walkthroughs
 
 *(13) Get walkthroughs made by artist*
@@ -182,6 +206,8 @@ ARTIST:
 - AUTHENTICATION = YES
 - AUTHORIZATION = n/a
 - ERROR HANDLING = inauthenticated or free user (401), artist not found (404)
+
+![Image](/docs/13.png)
 
 ### 127.0.0.1:5000/artists/<string:artreon_alias>/emails
 
@@ -194,6 +220,8 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = inauthenticated (401), artist not found (404)
 
+![Image](/docs/14.png)
+
 ### 127.0.0.1:5000/artworks
 
 *(15) Get all artworks*
@@ -205,6 +233,8 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = inauthenticated (401)
 
+![Image](/docs/15.png)
+
 ### 127.0.0.1:5000/artworks/<int:id>
 
 *(16) Get one artwork*
@@ -214,6 +244,8 @@ ARTIST:
 - AUTHENTICATION = YES
 - AUTHORIZATION = n/a
 - ERROR HANDLING = Unauthorized (401), Not found (404)
+
+![Image](/docs/16.png)
 
 ### 127.0.0.1:5000/walkthroughs
 
@@ -226,6 +258,8 @@ ARTIST:
 - AUTHORIZATION = NO
 - ERROR HANDLING = Unauthorized (401)
 
+![Image](/docs/17.png)
+
 ### 127.0.0.1:5000/walkthroughs/<int:id>
 
 *(18) Get single walkthrough*
@@ -237,19 +271,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be paid user
 - ERROR HANDLING = Unauthorized (401), walkthrough not found (404)
 
-### 127.0.0.1:5000/walkthroughs/<int:id>/comments
-
-*(19) Get all walkthrough comments on a walkthrough*
-- METHODS = GET
-- INPUTS = n/a
-- OUTPUT = Retrieves all comments on a walkthrough (200)
-- AUTHENTICATION = YES
-- AUTHORIZATION = YES, must be paid user
-- ERROR HANDLING = Unauthorized (401), walkthrough not found (404)
+![Image](/docs/18.png)
 
 ### 127.0.0.1:5000/emails
 
-*(20) Get all emails*
+*(19) Get all emails*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -258,9 +284,11 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = inauthenticated (401)
 
+![Image](/docs/20.png)
+
 ### 127.0.0.1:5000/emails/<int:id>
 
-*(21) Get single email*
+*(20) Get single email*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -269,16 +297,14 @@ ARTIST:
 - AUTHORIZATION = n/a
 - ERROR HANDLING = unauthorized (401), email not found (404)
 
-
-
-
+![Image](/docs/21.png)
 
 
 ## USERS
 
 ### 127.0.0.1:5000/users/<string:user_alias>
 
-*(22) Update user details*
+*(21) Update user details*
 
 - METHODS = PUT/PATCH
 - INPUTS = user_alias, first_name, last_name, email, has_subscription, password
@@ -287,7 +313,9 @@ ARTIST:
 - AUTHORIZATION = YES, must be same user
 - ERROR HANDLING = user alias not found in database (404, not found), inauthenticated (401)
 
-*(23) Delete user*
+![Image](/docs/22.png)
+
+*(22) Delete user*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -296,9 +324,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be same user
 - ERROR HANDLING = user alias not found in database (404, not found), inauthenticated (401)
 
+![Image](/docs/23.png)
+
 ### 127.0.0.1:5000/artworks/<int:id>/comments
 
-*(24) Create a comment on an artwork*
+*(23) Create a comment on an artwork*
 
 - METHODS = POST
 - INPUTS = description(string)
@@ -307,9 +337,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be a paid user
 - ERROR HANDLING = Unauthorized (401), artwork/comment not found (404)
 
+![Image](/docs/24.png)
+
 ### 127.0.0.1:5000/artworks/<int:id>/comments/<int:artwork_comment_id>
 
-*(25) Update own comment on an artwork*
+*(24) Update own comment on an artwork*
 
 - METHODS = PUT/PATCH
 - INPUTS = description(string)
@@ -318,7 +350,9 @@ ARTIST:
 - AUTHORIZATION = YES, must be same/paid user
 - ERROR HANDLING = Unauthorized (401), artwork/comment not found (404)
 
-*(26) Delete own comment*
+![Image](/docs/25.png)
+
+*(25) Delete own comment*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -327,9 +361,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be same user
 - ERROR HANDLING = Unauthorized (401), artwork/comment not found (404)
 
+![Image](/docs/26.png)
+
 ### 127.0.0.1:5000/qandas
 
-*(27) Get all Q&As*
+*(26) Get all Q&As*
 
 - METHODS = GET
 - INPUTS = n/a
@@ -338,9 +374,11 @@ ARTIST:
 - AUTHORIZATION = Yes, must be paid user
 - ERROR HANDLING = Unauthorized(401)
 
+![Image](/docs/27.png)
+
 ### 127.0.0.1:5000/qandas/<int:id>/comments
 
-*(28) Create comment on Q&A*
+*(27) Create comment on Q&A*
 
 - METHODS = POST
 - INPUTS = description (string)
@@ -349,9 +387,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be paid user
 - ERROR HANDLING = Unauthorized(401), Q&A not found(404)
 
+![Image](/docs/28.png)
+
 ### 127.0.0.1:5000/qandas/<int:id>/comments/<int:q_and_a_comment_id>
 
-*(29) Update comment on Q&A*
+*(28) Update comment on Q&A*
 
 - METHODS = PUT/PATCH
 - INPUTS = description (string)
@@ -360,7 +400,9 @@ ARTIST:
 - AUTHORIZATION = YES, must be same user
 - ERROR HANDLING = Unauthorized (401), Q&A/comment not found (404)
 
-*(30) Delete comment on Q&A*
+![Image](/docs/29.png)
+
+*(29) Delete comment on Q&A*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -369,58 +411,7 @@ ARTIST:
 - AUTHORIZATION = YES, must be same user
 - ERROR HANDLING = Unauthorized (401), Q&A/comment not found (404)
 
-### 127.0.0.1:5000/walkthroughs/<int:id>
-
-*(31) Delete walkthrough*
-
-- METHODS = DELETE
-- INPUTS = n/a
-- OUTPUT = Successful delete message (200)
-- AUTHENTICATION = YES
-- AUTHORIZATION = YES, must be same artist
-- ERROR HANDLING = Unauthorized (401), walkthrough not found (404)
-
-*(32) Update walkthrough*
-
-- METHODS = PUT/PATCH
-- INPUTS = description(string)
-- OUTPUT = Updated walkthrough (200)
-- AUTHENTICATION = YES
-- AUTHORIZATION = YES, must be same artist 
-- ERROR HANDLING = Unauthorized (401), walkthrough not found (404)
-
-### 127.0.0.1:5000/walkthroughs/<int:id>/comments
-
-*(33) Create a walkthrough comment*
-
-- METHODS = POST
-- INPUTS = description(string)
-- OUTPUT = Returned walkthrough comment on walkthrough (201)
-- AUTHENTICATION = YES
-- AUTHORIZATION = YES, must be paid user
-- ERROR HANDLING = Unauthorized (401), walkthrough not found (404)
-
-### 127.0.0.1:5000/walkthroughs/<int:id>/comments/<int:walkthrough_comment_id>
-
-*(34) Update a walkthrough comment*
-
-- METHODS = PUT/PATCH
-- INPUTS = description(string)
-- OUTPUT = Returned updated walkthrough comment (200)
-- AUTHENTICATION = YES
-- AUTHORIZATION = YES, must be paid user
-- ERROR HANDLING = Unauthorized (401), walkthrough/comment not found (404)
-
-*(35) Delete a walkthrough comment*
-
-- METHODS = DELETE
-- INPUTS = n/a
-- OUTPUT = Returned successful delete message (200)
-- AUTHENTICATION = YES
-- AUTHORIZATION = YES, must be same user
-- ERROR HANDLING = Unauthorized (401), walkthrough/comment not found (404)
-
-
+![Image](/docs/30.png)
 
 
 
@@ -428,7 +419,7 @@ ARTIST:
 
 #### 127.0.0.1:5000/auth/register-artist
 
-*(36) Register Artist*
+*(30) Register Artist*
 
 - METHODS = POST
 - INPUTS = artreon_alias(str), password(str), email(str), artist_bio(str)
@@ -437,9 +428,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be artist
 - ERROR HANDLING = same email, artreon_alias(409, Integrity Error), unauthorized(401)
 
+![Image](/docs/36.png)
+
 #### 127.0.0.1:5000/artists/<int:id>
 
-*(37) Update artist details*
+*(31) Update artist details*
 
 - METHODS = PUT/PATCH
 - INPUTS = artreon_alias(string), password, email, artist_bio
@@ -448,7 +441,9 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = artist not same artist (401), artist not found (404), inauthenticated (401)
 
-*(38) Delete artist*
+![Image](/docs/37.png)
+
+*(32) Delete artist*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -457,9 +452,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = artist not same artist (401), artist not found (404)
 
+![Image](/docs/38.png)
+
 #### 127.0.0.1:5000/artworks
 
-*(39) Create an artwork*
+*(33) Create an artwork*
 
 - METHODS = POST
 - INPUTS = artwork_name(string), description(string)
@@ -468,9 +465,11 @@ ARTIST:
 - AUTHORIZATION = YES must be an artist
 - ERROR HANDLING = Unauthorized (401)
 
+![Image](/docs/39.png)
+
 #### 127.0.0.1:5000/artworks/<int:id>
 
-*(40) Update an artwork*
+*(34) Update an artwork*
 
 - METHODS = PUT/PATCH
 - INPUTS = artwork_name(string), description(string)
@@ -479,7 +478,9 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = Unauthorized (401), Not found (404)
 
-*(41) Delete an artwork*
+![Image](/docs/40.png)
+
+*(35) Delete an artwork*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -488,9 +489,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = Unauthorized (401), Not found (404)
 
+![Image](/docs/41.png)
+
 #### 127.0.0.1:5000/qandas
 
-*(42) Post Q&A*
+*(36) Post Q&A*
 
 - METHODS = POST
 - INPUTS = q_and_a_content(string)
@@ -499,9 +502,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be artist
 - ERROR HANDLING = Unauthorized(401)
 
+![Image](/docs/42.png)
+
 #### 127.0.0.1:5000/qandas/<int:id>
 
-*(43) Delete Q&A*
+*(37) Delete Q&A*
 
 - METHODS = DELETE
 - INPUTS = n/a
@@ -510,7 +515,9 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = Unauthorized(401), Q&A not found(404)
 
-*(44) Update Q&A*
+![Image](/docs/43.png)
+
+*(38) Update Q&A*
 
 - METHODS = PUT/PATCH
 - INPUTS = q_and_a_content (string)
@@ -519,20 +526,11 @@ ARTIST:
 - AUTHORIZATION = YES, must be same artist
 - ERROR HANDLING = Unauthorized(401), Q&A not found(404)
 
-#### 127.0.0.1:5000/walkthroughs
-
-*(45) Create walkthrough*
-
-- METHODS = POST
-- INPUTS = description(string), artwork_id(foreign key)
-- OUTPUT = Returns created walkthrough (201)
-- AUTHENTICATION = YES
-- AUTHORIZATION = YES, must be artist and related to an artwork
-- ERROR HANDLING = Unauthorized (401), artwork not found (404)
+![Image](/docs/44.png)
 
 #### 127.0.0.1:5000/emails
 
-*(46) Create an email*
+*(39) Create an email*
 
 - METHODS = POST
 - INPUTS = Email title (string), email content (string)
@@ -540,3 +538,5 @@ ARTIST:
 - AUTHENTICATION = YES
 - AUTHORIZATION = YES, must be artist
 - ERROR HANDLING = unauthorized (401)
+
+![Image](/docs/45.png)

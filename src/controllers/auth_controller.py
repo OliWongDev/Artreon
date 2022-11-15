@@ -36,9 +36,9 @@ def auth_register_user():
 # Register an artist to the DB, must be admin artist.
 # WORKING 14/11/22
 @auth.route('/artist-register', methods=['POST'])
-@jwt_required()
+# @jwt_required()
 def auth_register_artist():
-    authorize_artist()
+    # authorize_artist()
     try:
         artist = Artist(
             artreon_alias = request.json["artreon_alias"],

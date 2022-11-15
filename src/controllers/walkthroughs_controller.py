@@ -40,15 +40,15 @@ def get_single_walkthrough(id):
 # WORKING 14/11/22 
 @walkthroughs.route("/", methods=["POST"])
 @jwt_required()
-def create_artwork():
+def create_walkthrough():
     authorize_artist()
     walkthrough_fields = WalkthroughSchema().load(request.json)
 
     new_walkthrough = Walkthrough(
           description = walkthrough_fields["description"],
           date = date.today(),
-          artwork_id = walkthrough_fields['artwork_id'],
-          artist_id = get_jwt_identity()
+          artwork_id = walkthrough_fields["artwork_id"],
+          artist_id = get_jwt_identity(),
     )
 
     db.session.add(new_walkthrough)
